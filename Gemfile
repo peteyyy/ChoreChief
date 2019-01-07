@@ -3,6 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+#haml
+gem 'haml'
+gem 'haml-rails'
+#mini-racer
+gem 'mini_racer'
+#Devise
+gem 'devise'
 #Bootstrap
 gem 'bootstrap', '~> 4.2.1'
 gem 'sprockets-rails'
