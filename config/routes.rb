@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root "users#home"
+  root "chores#index"
+  resources :chores
   devise_for :users
 
 end
