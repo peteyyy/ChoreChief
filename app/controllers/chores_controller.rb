@@ -29,6 +29,9 @@ class ChoresController < ApplicationController
 
     respond_to do |format|
       if @chore.save
+        # Twilio messaging--move later
+        message = "Chore Chief here! You have more work to do! '#{@chore.title}' was just added to your chores."
+        TwilioTextMessenger.new(message).call
         format.html { redirect_to @chore, notice: 'Chore was successfully created.' }
         format.json { render :show, status: :created, location: @chore }
       else

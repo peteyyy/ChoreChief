@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+#twilio
+gem 'twilio-ruby'
 #haml
 gem 'haml'
 gem 'haml-rails'
