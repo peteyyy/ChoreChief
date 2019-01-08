@@ -5,7 +5,7 @@ class ChoresController < ApplicationController
   # GET /chores
   # GET /chores.json
   def index
-    @chores = Chore.all
+    @chores = current_user.chores.all
   end
 
   # GET /chores/1
@@ -25,7 +25,7 @@ class ChoresController < ApplicationController
   # POST /chores
   # POST /chores.json
   def create
-    @chore = Chore.new(chore_params)
+    @chore = Chore.new(chore_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @chore.save
