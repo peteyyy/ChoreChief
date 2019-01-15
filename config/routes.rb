@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "chores#index"
+  root "users#home"
   resources :chores
   resources :groups
   devise_for :users

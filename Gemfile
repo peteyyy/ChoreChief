@@ -5,6 +5,8 @@ ruby '2.5.1'
 
 #twilio
 gem 'twilio-ruby'
+#jquery
+gem 'jquery-rails'
 #haml
 gem 'haml'
 gem 'haml-rails'

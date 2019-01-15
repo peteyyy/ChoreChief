@@ -10,5 +10,7 @@
 
   = f.label(:interval, "How many days per week must this chore be done? (1-7):")
   = f.text_field(:interval)
+
+  = f.select :group_id, options_from_collection_for_select(Group.all, :id, :name)
   .actions
     = f.submit 'Save'

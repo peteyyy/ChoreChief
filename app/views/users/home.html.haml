@@ -1,3 +1,15 @@
-%h1 Chore Chief
-
-
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  %a.navbar-brand{:href => "#"} ChoreChief
+  %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    %ul.navbar-nav
+      %li.nav-item
+        .nav-link
+          = link_to "Groups", groups_path
+      %li.nav-item
+        .nav-link
+          = link_to "Chores", chores_path
+      %li.nav-item
+        .nav-link
+          = link_to "Sign Out", destroy_user_session_path, method: :delete

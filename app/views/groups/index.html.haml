@@ -9,6 +9,7 @@
 
   %tbody
     - @groups.each do |group|
+      %h5= group.name
       %tr
         %td= link_to 'Show', group
         %td= link_to 'Edit', edit_group_path(group)
