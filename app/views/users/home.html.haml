@@ -1,15 +1,23 @@
-%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  %a.navbar-brand{:href => "#"} ChoreChief
-  %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
-    %span.navbar-toggler-icon
-  #navbarNav.collapse.navbar-collapse
-    %ul.navbar-nav
-      %li.nav-item
-        .nav-link
-          = link_to "Groups", groups_path
-      %li.nav-item
-        .nav-link
-          = link_to "Chores", chores_path
-      %li.nav-item
-        .nav-link
-          = link_to "Sign Out", destroy_user_session_path, method: :delete
+.container
+  .row
+
+    .btn.btn-light.col-2.offset-3
+      = link_to "+ New Chore", new_chore_path, class: "btn"
+    .btn.btn-light.col-2.offset-1
+      = link_to "Manage Groups", groups_path, class: "btn"
+  .row
+    .col-3.offset-3
+      %h1 My Chores
+    .col-3
+      %h1 My Groups
+      %h1
+  .col-6.offset-3
+    %ul.list-group
+      - @groups.each do |group|
+        %li.list-group-item
+          = group.name
+  .col-6.offset-3
+    %ul.list-group
+      - @chores.each do |chore|
+        %li.list-group-item
+          = chore.title

@@ -1,10 +1,14 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
+  before_action :set_user_groups
 
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    # @groups = Group.all
+    # groups = Group.where(user_id: current_user.id)
+    @groups = current_user.groups
   end
 
   # GET /groups/1
@@ -24,7 +28,7 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(group_params)
+    @group = Group.new(group_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @group.save
@@ -67,8 +71,16 @@ class GroupsController < ApplicationController
       @group = Group.find(params[:id])
     end
 
+    def set_user
+      @user = User.find(current_user.id)
+    end
+    # adds current_user's groups to @user.groups
+    def set_user_groups
+      @user.groups << Group.where(user_id: current_user.id)
+      @user.groups = @user.groups.distinct
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, :user_id)
     end
 end

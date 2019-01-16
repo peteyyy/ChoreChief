@@ -8,4 +8,20 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .navbar-brand
+        = link_to "ChoreChief", root_path
+      %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
+        %span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        %ul.navbar-nav
+          %li.nav-item
+            .nav-link
+              = link_to "Groups", groups_path
+          %li.nav-item
+            .nav-link
+              = link_to "Chores", chores_path
+          %li.nav-item
+            .nav-link
+              = link_to "Sign Out", destroy_user_session_path, method: :delete
     = yield
