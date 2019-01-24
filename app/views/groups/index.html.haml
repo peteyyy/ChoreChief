@@ -1,4 +1,4 @@
-%h1 Listing groups
+%h1 My groups
 
 %table
   %thead
@@ -8,13 +8,12 @@
       %th
 
   %tbody
-    %h1= @user.groups.first.name
-    / - @groups.each do |group|
-    /   %h5= group.name
-    /   %tr
-    /     %td= link_to 'Show', group
-    /     %td= link_to 'Edit', edit_group_path(group)
-    /     %td= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }
+    - @groups.each do |group|
+      %h5= group.name
+      %tr
+        %td= link_to 'Show', group
+        %td= link_to 'Edit', edit_group_path(group)
+        %td= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 

@@ -6,9 +6,6 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    # @groups = Group.all
-    # groups = Group.where(user_id: current_user.id)
-    @groups = current_user.groups
   end
 
   # GET /groups/1
@@ -78,6 +75,7 @@ class GroupsController < ApplicationController
     def set_user_groups
       @user.groups << Group.where(user_id: current_user.id)
       @user.groups = @user.groups.distinct
+      @groups = @user.groups
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
