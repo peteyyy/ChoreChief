@@ -1,3 +1,74 @@
-//Global
-
-// Users#Home
+// #Home
+.button-section {
+  height: 200px;
+  background-color: $color1;
+  padding: 74px 0;
+}
+.group-chore-list {
+  background-color: $color3;
+  padding: 50px 0;
+  .container {
+    // Chore and Group Tabs
+    .tab-header {
+      text-align: center;
+      .row {
+        margin: 0;
+        a:hover {
+          text-decoration: none;
+        }
+        .active-tab {
+          background-color: #fff;
+          border-radius: 5px 5px 0 0;
+        }
+        h1 {
+          padding: 10px 0;
+          margin-bottom: 0;
+          font-size: 30px;
+        }
+      }
+    }
+    // Chore and Group Lists
+    .list-content {
+      background-color: #fff;
+      .item-list {
+        padding: 0;
+        .list-group {
+          .list-group-item {
+            border-radius: 0;
+            margin: 5px 10px;
+            padding: 0;
+            background-color: $color4;
+            .row {
+              height: 100%;
+              margin: 0;
+              line-height: 18px;
+              .chore-group-name {
+                background-color: $color5;
+                text-align: center;
+                padding: 2px;
+                h5 {
+                  font-size: 15px;
+                  position: relative;
+                  top: 50%;
+                  transform: translateY(-50%);
+                }
+              }
+              .list-item-title {
+                padding: 20px 5px;
+              }
+              .list-item-links {
+                background-color: $color2;
+                a {
+                  position: relative;
+                  top: 40%;
+                  // why is this more centered than 50%???
+                  // transform: translateY(-50%);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

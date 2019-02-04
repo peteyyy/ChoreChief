@@ -1,0 +1,11 @@
+%ul.list-group
+  - @chores.each do |chore|
+    %li.list-group-item
+      .row
+        .col-3.chore-group-name
+          %h5
+            = chore.group.name
+        .col-7.list-item-title
+          = chore.title
+        .col-2.list-item-links
+          = link_to 'Edit', edit_chore_path(chore)

@@ -1,27 +1,24 @@
-.container
-  .row
-
-    .btn.btn-light.col-2.offset-3
-      = link_to "+ New Chore", new_chore_path, class: "btn"
-    .btn.btn-light.col-2.offset-1
-      = link_to "Manage Groups", groups_path, class: "btn"
-  .row
-    .col-3.offset-3
-      %h1= link_to "My Chores", "#", id: "show_chores"
-    .col-3
-      %h1= link_to "My Groups", root_path, id: "show_groups"
-      %h1
-  .col-6.offset-3.group-div
-    %ul.list-group
-      - @groups.each do |group|
-        %li.list-group-item
-          = group.name
-  .col-6.offset-3.chore-div
-    %ul.list-group
-      - @chores.each do |chore|
-        %li.list-group-item
-          .row
-            .col-3
-              = chore.group.name
-            .col-9
-              = chore.title
+/ New Chore | Manage Groups Button Section
+.button-section
+  .container
+    .row
+      .col-6
+        .btn.btn-light.col-12
+          = link_to "+ New Chore", new_chore_path, class: "btn"
+      .col-6
+        .btn.btn-light.col-12
+          = link_to "Manage Groups", groups_path, class: "btn"
+    / Group and Chore tabs and lists
+.group-chore-list
+  .container
+    .tab-header
+      .row
+        .col-6#show_chores
+          %h1= link_to "Chores", "#"
+        .col-6#show_groups
+          %h1= link_to "Groups", root_path
+    .list-content
+      .col-12.item-list#chore_list
+        = render "chore_list"
+      .col-12.item-list#group_list{:style => "display:none"}
+        = render "group_list"

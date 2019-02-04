@@ -4,12 +4,17 @@
 
 
 $(document).on 'turbolinks:load', ->
+  $("#show_chores").addClass('active-tab')
   $("#show_chores").click ->
-    $(".group-div").hide()
-    $(".chore-div").show()
+    $("#show_chores").addClass('active-tab')
+    $("#show_groups").removeClass('active-tab')
+    $("#chore_list").show()
+    $("#group_list").hide()
     return false
 
   $("#show_groups").click ->
-    $(".chore-div").hide()
-    $(".group-div").show()
+    $("#show_groups").addClass('active-tab')
+    $("#show_chores").removeClass('active-tab')
+    $("#group_list").show()
+    $("#chore_list").hide()
     return false
