@@ -8,11 +8,6 @@ class GroupsController < ApplicationController
   def index
   end
 
-  # GET /groups/1
-  # GET /groups/1.json
-  def show
-  end
-
   # GET /groups/new
   def new
     @group = Group.new
@@ -29,8 +24,8 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render :show, status: :created, location: @group }
+        format.html { redirect_to root_path, notice: 'Group was successfully created.' }
+        format.json { render :show, status: :created, location: root_path }
       else
         format.html { render :new }
         format.json { render json: @group.errors, status: :unprocessable_entity }
@@ -43,8 +38,8 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @group }
+        format.html { redirect_to root_path, notice: 'Group was successfully updated.' }
+        format.json { render :show, status: :ok, location: root_path }
       else
         format.html { render :edit }
         format.json { render json: @group.errors, status: :unprocessable_entity }

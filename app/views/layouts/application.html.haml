@@ -24,4 +24,8 @@
           %li.nav-item
             .nav-link
               = link_to "Sign Out", destroy_user_session_path, method: :delete
+    / alerts
+    - if flash[:notice]
+      .alert.alert-success{role: "alert"}
+        = flash[:notice]
     = yield

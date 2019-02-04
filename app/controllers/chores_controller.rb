@@ -8,11 +8,6 @@ class ChoresController < ApplicationController
     @chores = current_user.chores.all
   end
 
-  # GET /chores/1
-  # GET /chores/1.json
-  def show
-  end
-
   # GET /chores/new
   def new
     @chore = Chore.new
@@ -32,8 +27,8 @@ class ChoresController < ApplicationController
         # Twilio messaging--move later
         message = "Chore Chief here! You have more work to do! '#{@chore.title}' was just added to your chores."
         TwilioTextMessenger.new(message).call
-        format.html { redirect_to @chore, notice: 'Chore was successfully created.' }
-        format.json { render :show, status: :created, location: @chore }
+        format.html { redirect_to root_path, notice: 'Chore was successfully created.' }
+        format.json { render :root, status: :created, location: root_path }
       else
         format.html { render :new }
         format.json { render json: @chore.errors, status: :unprocessable_entity }
@@ -46,8 +41,8 @@ class ChoresController < ApplicationController
   def update
     respond_to do |format|
       if @chore.update(chore_params)
-        format.html { redirect_to @chore, notice: 'Chore was successfully updated.' }
-        format.json { render :show, status: :ok, location: @chore }
+        format.html { redirect_to root_path, notice: 'Chore was successfully updated.' }
+        format.json { render :root, status: :ok, location: root_path }
       else
         format.html { render :edit }
         format.json { render json: @chore.errors, status: :unprocessable_entity }
