@@ -4,6 +4,7 @@
 
 
 $(document).on 'turbolinks:load', ->
+  # Chore and Group Active Tabs
   $("#show_chores").addClass('active-tab')
   $("#show_chores").click ->
     $("#show_chores").addClass('active-tab')
@@ -17,4 +18,10 @@ $(document).on 'turbolinks:load', ->
     $("#show_chores").removeClass('active-tab')
     $("#group_list").show()
     $("#chore_list").hide()
+    return false
+
+  #   #List Item Expand
+  $(".list-group-item").click ->
+    id = $(this).attr('id')
+    $("#carrot" + id).toggleClass('flip')
     return false

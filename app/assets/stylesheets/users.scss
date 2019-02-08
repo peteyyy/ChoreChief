@@ -33,7 +33,11 @@
       .item-list {
         padding: 0;
         .list-group {
+          a:hover {
+            text-decoration: none;
+          }
           .list-group-item {
+            color: black;
             border-radius: 0;
             margin: 5px 10px;
             padding: 0;
@@ -48,6 +52,7 @@
                 padding: 2px;
                 h5 {
                   font-size: 15px;
+                  font-weight: bold;
                   position: relative;
                   top: 50%;
                   transform: translateY(-50%);
@@ -56,13 +61,27 @@
               .list-item-title {
                 padding: 20px 5px;
               }
-              .list-item-links {
-                background-color: $color2;
-                a {
-                  position: relative;
-                  top: 40%;
-                  // why is this more centered than 50%???
-                  // transform: translateY(-50%);
+              .list-item-triangle {
+                padding: 0;
+                position: relative;
+                background-color: $color3;
+                .flip{
+                  transform: rotate(-180deg);
+                }
+                img {
+                  -moz-transition: transform 1s;
+                  -webkit-transition: transform 1s;
+                  transition: transform 1s;
+                  max-height: 100%;
+                  max-width: 100%;
+                  width: auto;
+                  height: auto;
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  margin: auto;
                 }
               }
             }

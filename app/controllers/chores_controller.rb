@@ -13,6 +13,9 @@ class ChoresController < ApplicationController
     @chore = Chore.new
   end
 
+  def show
+  end
+
   # GET /chores/1/edit
   def edit
   end
