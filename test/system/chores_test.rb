@@ -1,41 +1,42 @@
+
 require "application_system_test_case"
 
-class ChoresTest < ApplicationSystemTestCase
+class TasksTest < ApplicationSystemTestCase
   setup do
-    @chore = chores(:one)
+    @task = tasks(:one)
   end
 
   test "visiting the index" do
-    visit chores_url
-    assert_selector "h1", text: "Chores"
+    visit tasks_url
+    assert_selector "h1", text: "Tasks"
   end
 
-  test "creating a Chore" do
-    visit chores_url
-    click_on "New Chore"
+  test "creating a Task" do
+    visit tasks_url
+    click_on "New Task"
 
-    click_on "Create Chore"
+    click_on "Create Task"
 
-    assert_text "Chore was successfully created"
+    assert_text "Task was successfully created"
     click_on "Back"
   end
 
-  test "updating a Chore" do
-    visit chores_url
+  test "updating a Task" do
+    visit tasks_url
     click_on "Edit", match: :first
 
-    click_on "Update Chore"
+    click_on "Update Task"
 
-    assert_text "Chore was successfully updated"
+    assert_text "Task was successfully updated"
     click_on "Back"
   end
 
-  test "destroying a Chore" do
-    visit chores_url
+  test "destroying a Task" do
+    visit tasks_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
 
-    assert_text "Chore was successfully destroyed"
+    assert_text "Task was successfully destroyed"
   end
 end

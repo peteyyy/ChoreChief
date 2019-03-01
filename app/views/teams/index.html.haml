@@ -1,0 +1,20 @@
+%h1 My teams
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @teams.each do |team|
+      %h5= team.name
+      %tr
+        %td= link_to 'Show', team
+        %td= link_to 'Edit', edit_team_path(team)
+        %td= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Team', new_team_path

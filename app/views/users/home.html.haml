@@ -1,24 +1,24 @@
-/ New Chore | Manage Groups Button Section
+/ New Task | Manage Teams Button Section
 .button-section
   .container
     .row
       .col-6
         .btn.btn-light.col-12
-          = link_to "+ New Chore", new_chore_path, class: "btn"
+          = link_to "New Task", new_task_path, class: "btn"
       .col-6
         .btn.btn-light.col-12
-          = link_to "Manage Groups", groups_path, class: "btn"
-    / Group and Chore tabs and lists
-.group-chore-list
+          = link_to "New Team", teams_path, class: "btn"
+    / Team and Task tabs and lists
+.team-task-list
   .container
     .tab-header
       .row
-        .col-6#show_chores
-          %h1= link_to "Chores"
-        .col-6#show_groups
-          %h1= link_to "Groups"
+        .col-6#show_tasks
+          %h1= link_to "Tasks"
+        .col-6#show_teams
+          %h1= link_to "Teams"
     .list-content
-      .col-12.item-list#chore_list
-        = render "chore_list"
-      .col-12.item-list#group_list{:style => "display:none"}
-        = render "group_list"
+      .col-12.item-list#task_list
+        = render "task_list"
+      .col-12.item-list#team_list{:style => "display:none"}
+        = render "team_list"

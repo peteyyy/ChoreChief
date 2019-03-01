@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class ChoresControllerTest < ActionDispatch::IntegrationTest
+class TasksControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @chore = chores(:one)
+    @task = tasks(:one)
   end
 
   test "should get index" do
-    get chores_url
+    get tasks_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_chore_url
+    get new_task_url
     assert_response :success
   end
 
-  test "should create chore" do
-    assert_difference('Chore.count') do
-      post chores_url, params: { chore: {  } }
+  test "should create task" do
+    assert_difference('Task.count') do
+      post tasks_url, params: { task: {  } }
     end
 
-    assert_redirected_to chore_url(Chore.last)
+    assert_redirected_to task_url(Task.last)
   end
 
-  test "should show chore" do
-    get chore_url(@chore)
+  test "should show task" do
+    get task_url(@task)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_chore_url(@chore)
+    get edit_task_url(@task)
     assert_response :success
   end
 
-  test "should update chore" do
-    patch chore_url(@chore), params: { chore: {  } }
-    assert_redirected_to chore_url(@chore)
+  test "should update task" do
+    patch task_url(@task), params: { task: {  } }
+    assert_redirected_to task_url(@task)
   end
 
-  test "should destroy chore" do
-    assert_difference('Chore.count', -1) do
-      delete chore_url(@chore)
+  test "should destroy task" do
+    assert_difference('Task.count', -1) do
+      delete task_url(@task)
     end
 
-    assert_redirected_to chores_url
+    assert_redirected_to tasks_url
   end
 end

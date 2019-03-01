@@ -1,0 +1,16 @@
+%ul.list-team
+  - @tasks.each do |task|
+    / this should be a button
+    = link_to id: "task-card-expand" do
+      %li.list-team-item{:id => "#{task.id}"}
+        .row
+          .col-3.task-team-name
+            %h5= task.team.name
+          .col-7.list-item-title
+            = task.title
+          .col-2.list-item-triangle
+            = image_tag "https://i.imgur.com/uLlPUfM.png", id: "carrot#{task.id}"
+    .list-expanded{style: "display:none", id: "list-expanded#{task.id}"}
+      %h5 Workers 2
+      %h5 Frequency:
+      = task.interval

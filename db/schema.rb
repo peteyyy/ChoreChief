@@ -15,27 +15,27 @@ ActiveRecord::Schema.define(version: 2019_01_16_005416) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "chores", force: :cascade do |t|
+  create_table "tasks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.integer "interval"
     t.bigint "user_id"
-    t.bigint "group_id"
-    t.index ["group_id"], name: "index_chores_on_group_id"
-    t.index ["user_id"], name: "index_chores_on_user_id"
+    t.bigint "team_id"
+    t.index ["team_id"], name: "index_tasks_on_team_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
-  create_table "groups", force: :cascade do |t|
+  create_table "teams", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.index ["user_id"], name: "index_groups_on_user_id"
+    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
-  create_table "groups_users", id: false, force: :cascade do |t|
-    t.bigint "group_id", null: false
+  create_table "teams_users", id: false, force: :cascade do |t|
+    t.bigint "team_id", null: false
     t.bigint "user_id", null: false
   end
 
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_01_16_005416) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "chores", "groups"
-  add_foreign_key "chores", "users"
-  add_foreign_key "groups", "users"
+  add_foreign_key "tasks", "teams"
+  add_foreign_key "tasks", "users"
+  add_foreign_key "teams", "users"
 end

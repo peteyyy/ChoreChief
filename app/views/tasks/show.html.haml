@@ -1,0 +1,4 @@
+%p= @task.title
+%p= @task.interval
+%p= @task.user_id
+%p= User.find(@task.user_id).email

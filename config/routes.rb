@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   root "users#home"
-  resources :chores
-  resources :groups
+  resources :tasks
+  resources :teams
   devise_for :users
 
 end

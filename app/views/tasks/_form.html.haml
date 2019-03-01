@@ -1,0 +1,16 @@
+= form_for @task do |f|
+  - if @task.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+      %ul
+        - @task.errors.full_messages.each do |message|
+          %li= message
+  = f.label(:title, "Task Title:")
+  = f.text_field(:title)
+
+  = f.label(:interval, "How many days per week must this task be done? (1-7):")
+  = f.text_field(:interval)
+
+  = f.select :team_id, options_from_collection_for_select(current_user.teams, :id, :name)
+  .actions
+    = f.submit 'Save'

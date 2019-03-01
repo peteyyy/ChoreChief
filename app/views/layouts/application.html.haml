@@ -2,25 +2,26 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title ChoreChief
+    %title TaskHive
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    / %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    %nav.navbar.navbar-expand-lg.navbar-dark
       .navbar-brand
-        = link_to "ChoreChief", root_path
-      %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
+        = link_to "Task Hub", root_path
+      %span.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse"}
         %span.navbar-toggler-icon
       #navbarNav.collapse.navbar-collapse
         %ul.navbar-nav
           %li.nav-item
             .nav-link
-              = link_to "Groups", groups_path
+              = link_to "Teams", teams_path
           %li.nav-item
             .nav-link
-              = link_to "Chores", chores_path
+              = link_to "Tasks", tasks_path
           %li.nav-item
             .nav-link
               = link_to "Sign Out", destroy_user_session_path, method: :delete

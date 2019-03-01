@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :chores, dependent: :destroy
-  has_and_belongs_to_many :groups
+  has_many :tasks, dependent: :destroy
+  has_and_belongs_to_many :teams
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

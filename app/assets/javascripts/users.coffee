@@ -4,24 +4,25 @@
 
 
 $(document).on 'turbolinks:load', ->
-  # Chore and Group Active Tabs
-  $("#show_chores").addClass('active-tab')
-  $("#show_chores").click ->
-    $("#show_chores").addClass('active-tab')
-    $("#show_groups").removeClass('active-tab')
-    $("#chore_list").show()
-    $("#group_list").hide()
+  # Task and Team Active Tabs
+  $("#show_tasks").addClass('active-tab')
+  $("#show_tasks").click ->
+    $("#show_tasks").addClass('active-tab')
+    $("#show_teams").removeClass('active-tab')
+    $("#task_list").show()
+    $("#team_list").hide()
     return false
 
-  $("#show_groups").click ->
-    $("#show_groups").addClass('active-tab')
-    $("#show_chores").removeClass('active-tab')
-    $("#group_list").show()
-    $("#chore_list").hide()
+  $("#show_teams").click ->
+    $("#show_teams").addClass('active-tab')
+    $("#show_tasks").removeClass('active-tab')
+    $("#team_list").show()
+    $("#task_list").hide()
     return false
 
   #   #List Item Expand
-  $(".list-group-item").click ->
+  $(".list-team-item").click ->
     id = $(this).attr('id')
     $("#carrot" + id).toggleClass('flip')
+    $("#list-expanded" + id).slideToggle()
     return false

@@ -1,14 +1,23 @@
 // #Home
+
+// Navbar
+.navbar {
+  background-color: $color1;
+  a {
+    color: #c3c3c3;
+  }
+}
+// Button Section
 .button-section {
   height: 200px;
   background-color: $color1;
   padding: 74px 0;
 }
-.group-chore-list {
+.team-task-list {
   background-color: $color3;
   padding: 50px 0;
   .container {
-    // Chore and Group Tabs
+    // Task and Team Tabs
     .tab-header {
       text-align: center;
       .row {
@@ -27,26 +36,25 @@
         }
       }
     }
-    // Chore and Group Lists
+    // Task and Team Lists
     .list-content {
       background-color: #fff;
       .item-list {
         padding: 0;
-        .list-group {
+        .list-team {
           a:hover {
             text-decoration: none;
           }
-          .list-group-item {
+          .list-team-item {
             color: black;
             border-radius: 0;
             margin: 5px 10px;
             padding: 0;
-            background-color: $color4;
             .row {
               height: 100%;
               margin: 0;
               line-height: 18px;
-              .chore-group-name {
+              .task-team-name {
                 background-color: $color5;
                 text-align: center;
                 padding: 2px;
@@ -69,9 +77,9 @@
                   transform: rotate(-180deg);
                 }
                 img {
-                  -moz-transition: transform 1s;
-                  -webkit-transition: transform 1s;
-                  transition: transform 1s;
+                  -moz-transition: transform 500ms;
+                  -webkit-transition: transform 500ms;
+                  transition: transform 500ms;
                   max-height: 100%;
                   max-width: 100%;
                   width: auto;
